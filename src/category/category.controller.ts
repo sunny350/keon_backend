@@ -5,12 +5,12 @@ import { AdminService } from 'src/admin/admin.service';
 @Controller('category')
 export class CategoryController {
     constructor(
-        private readonly categoriesService: CategoryService,
+        private readonly categoryService: CategoryService,
     ){}
 
-    // @Get('')
-    // async fetchCategory(){
-    //     let abc  = await this.AdminService.tp()
-    //     console.log('abc :>> ', abc);
-    // }
+    @Get('')
+    async fetchCategory(){
+        let abc  = await this.categoryService.tp()
+        console.log('abc :>> ', abc);
+    }
 }
