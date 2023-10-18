@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  mongodbKeonDatabase:
+    image: sunny360/mongodbdatabase-1
+    container_name: 'mongodbKeonDatabase'
+    ports:
+      - 27018:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
