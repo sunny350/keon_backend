@@ -1,18 +1,27 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument , now } from 'mongoose';
 
 export type CategoryDocument = HydratedDocument<Category>;
 
 @Schema()
 export class Category {
   @Prop()
-  name: string;
+  category_name: string;
 
   @Prop()
-  age: number;
+  parent_id: string;
 
   @Prop()
-  breed: string;
+  is_parent: boolean;
+
+  @Prop()
+  child_categories: string[];
+
+  @Prop({default: now()})
+  createdAt: Date;
+
+  @Prop({default: now()})
+  updatedAt: Date;
 }
 
 export const CategorySchema = SchemaFactory.createForClass(Category);
