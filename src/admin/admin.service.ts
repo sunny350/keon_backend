@@ -12,7 +12,7 @@ export class AdminService {
     ){}
 
     async add(body){
-        return await this.products.insertMany(body)
+        return await this.products.findOneAndUpdate({sku : body.sku , size : body.size} , body ,{upsert :true , new :true})
     }
     async addCategory(body){
         console.log(body);

@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, now } from 'mongoose';
 
 export type ProductDocument = HydratedDocument<Product>;
 
@@ -19,13 +19,25 @@ export class Product {
   product_name : string
 
   @Prop()
-  sizes : object[]
+  size : string
 
   @Prop()
   primary_image : string
 
   @Prop()
-  images : string
+  images : string[]
+
+  @Prop()
+  qty : number
+
+  @Prop()
+  discount_percent : number
+
+  @Prop({default: now()})
+  createdAt: Date;
+
+  @Prop({default: now()})
+  updatedAt: Date;
 
 
 }
