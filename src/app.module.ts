@@ -12,6 +12,9 @@ import { ECollectionName } from './enum/common.enum';
 import { ProductService } from './product/product.service';
 import { ProductController } from './product/product.controller';
 import { ProductSchema } from './product/schemas/product.schema';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
+import { UserSchema } from './user/schema/user.schema';
 
 @Module({
   imports: [
@@ -20,9 +23,10 @@ import { ProductSchema } from './product/schemas/product.schema';
     MongooseModule.forFeature([
       { name: "categories", schema: CategorySchema },
       { name: "products", schema: ProductSchema },
+      { name: "users", schema: UserSchema },
     ]),
   ],
-  controllers: [AppController, CategoryController, ProductController , AdminController],
-  providers: [AppService, CategoryService, ProductService , AdminService],
+  controllers: [AppController, CategoryController, ProductController , AdminController, UserController],
+  providers: [AppService, CategoryService, ProductService , AdminService, UserService],
 })
 export class AppModule {}
