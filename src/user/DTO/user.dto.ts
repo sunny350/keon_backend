@@ -3,8 +3,12 @@ import { IsNotEmpty } from "class-validator";
 
 export class userSignupDto {
     @IsNotEmpty()
-    @ApiProperty({example : "Sunny_Ramani"})
-    user_name : string
+    @ApiProperty({example : "Sunny"})
+    name : string
+
+    @IsNotEmpty()
+    @ApiProperty({example : "Ramani"})
+    surname : string
 
     @IsNotEmpty()
     @ApiProperty({example : "sunnyramani201311@gmail.com"})
