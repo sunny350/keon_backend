@@ -22,3 +22,13 @@ export class userSignupDto {
     @ApiProperty({example : ""})
     password  : string
 }
+
+export class userLoginDto {
+    @IsNotEmpty()
+    @ApiProperty({example : "sunnyramani201311@gmail.com"})
+    email : string
+
+    @IsNotEmpty()
+    @ApiProperty({example : ""})
+    password  : string
+}
